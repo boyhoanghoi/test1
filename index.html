@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đề Cương Đồ Án: Mạng Xã Hội Du Lịch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Soothing Teal and Gray -->
+    <!-- Application Structure Plan: The application transforms the linear thesis outline into an interactive, single-page dashboard. This structure was chosen for superior usability and engagement. A sticky navigation bar allows non-linear exploration of key sections: Project Overview, Core Features, System Architecture, and Timeline. This approach helps stakeholders quickly grasp the project's scope, technology, and plan without reading through a lengthy document. The goal is to present the project plan as a dynamic, easily digestible web experience. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Project Timeline Table -> Goal: Show Change/Process -> Viz/Presentation Method: Horizontal Bar Chart (Gantt-style) -> Interaction: Hover tooltips for details -> Justification: A Gantt chart is the most intuitive way to visualize a project schedule, far superior to a static table for understanding duration and dependencies -> Library/Method: Chart.js/Canvas.
+        - Report Info: List of 10 Functional Requirements -> Goal: Organize & Inform -> Viz/Presentation Method: Interactive Grid of Cards -> Interaction: Click to display details in a separate panel -> Justification: An interactive grid is more engaging and less overwhelming than a long text list. It allows users to focus on one feature at a time. -> Library/Method: Vanilla JS + HTML/CSS.
+        - Report Info: System Architecture description -> Goal: Organize -> Viz/Presentation Method: Simple diagram with HTML/CSS -> Interaction: Hover effects to highlight components -> Justification: A visual diagram clarifies the system's structure more effectively than text alone. -> Library/Method: HTML/Tailwind CSS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 500px;
+            max-height: 60vh;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-teal-600">Đồ Án Tốt Nghiệp</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="text-gray-600 hover:bg-teal-50 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Tổng Quan</a>
+                        <a href="#features" class="text-gray-600 hover:bg-teal-50 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Chức Năng</a>
+                        <a href="#tech" class="text-gray-600 hover:bg-teal-50 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Công Nghệ</a>
+                        <a href="#plan" class="text-gray-600 hover:bg-teal-50 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Kế Hoạch</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+                <h2 class="text-sm font-semibold text-teal-500 uppercase tracking-wide">Đề tài: Mạng Xã Hội Du Lịch</h2>
+                <p class="mt-2 text-4xl font-extrabold text-slate-900 tracking-tight sm:text-5xl">
+                    Xây dựng Ứng dụng Đa nền tảng với Flutter & MySQL
+                </p>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-600">
+                    Một nền tảng chuyên biệt giúp cộng đồng yêu du lịch kết nối, chia sẻ trải nghiệm và khám phá những địa điểm mới một cách trực quan và đáng tin cậy.
+                </p>
+            </div>
+        </section>
+
+        <section id="overview" class="py-16 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">Tổng Quan Dự Án</h2>
+                    <p class="mt-4 text-lg text-slate-600">Mục tiêu, tính cấp thiết và phương pháp tiếp cận của đề tài.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-teal-600">1. Tính Thực Tiễn</h3>
+                        <p class="mt-2 text-sm text-slate-600">Giải quyết nhu cầu tìm kiếm thông tin du lịch tập trung, đáng tin cậy. Tạo ra một không gian kết nối cho cộng đồng có chung đam mê, khắc phục sự nhiễu loạn thông tin trên các mạng xã hội lớn.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-teal-600">2. Mục Đích Nghiên Cứu</h3>
+                        <p class="mt-2 text-sm text-slate-600">Xây dựng hoàn chỉnh một ứng dụng di động đa nền tảng (iOS & Android) với đầy đủ chức năng. Áp dụng Flutter, RESTful API và MySQL để tạo ra một sản phẩm ổn định, hiệu quả và dễ dàng mở rộng.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-teal-600">3. Phương Pháp Nghiên Cứu</h3>
+                        <p class="mt-2 text-sm text-slate-600">Kết hợp nghiên cứu lý thuyết từ tài liệu chính thống và phương pháp thực nghiệm theo mô hình Agile/Scrum. Phân tích các ứng dụng tương tự để học hỏi và cải tiến.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">Chức Năng Cốt Lõi</h2>
+                    <p class="mt-4 text-lg text-slate-600">Khám phá các tính năng chính của ứng dụng. Nhấn vào một chức năng để xem chi tiết.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-1">
+                        <div id="feature-list" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-4">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 bg-slate-50 rounded-lg p-8 min-h-[300px] flex items-center justify-center" id="feature-details-container">
+                        <div id="feature-details-content" class="text-center">
+                            <p class="text-slate-500">Chọn một chức năng để xem mô tả chi tiết.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="py-16 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">Kiến Trúc & Công Nghệ</h2>
+                    <p class="mt-4 text-lg text-slate-600">Các công nghệ và kiến trúc được sử dụng để xây dựng hệ thống.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-center mb-4 text-teal-600">Kiến Trúc Hệ Thống</h3>
+                        <div class="space-y-4 text-center">
+                            <div class="p-4 bg-teal-50 rounded-lg border border-teal-200">
+                                <p class="font-semibold text-teal-800">Client (Frontend)</p>
+                                <p class="text-sm text-teal-700">Flutter (iOS & Android)</p>
+                            </div>
+                            <div class="text-2xl text-slate-400">↓</div>
+                            <div class="p-4 bg-sky-50 rounded-lg border border-sky-200">
+                                <p class="font-semibold text-sky-800">Giao tiếp qua API</p>
+                                <p class="text-sm text-sky-700">RESTful API (JSON)</p>
+                            </div>
+                            <div class="text-2xl text-slate-400">↓</div>
+                            <div class="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+                                <p class="font-semibold text-indigo-800">Server (Backend)</p>
+                                <p class="text-sm text-indigo-700">Node.js / Java / PHP</p>
+                            </div>
+                             <div class="text-2xl text-slate-400">↓</div>
+                            <div class="p-4 bg-amber-50 rounded-lg border border-amber-200">
+                                <p class="font-semibold text-amber-800">Cơ sở dữ liệu</p>
+                                <p class="text-sm text-amber-700">MySQL</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-center mb-4 text-teal-600">Công Nghệ Sử Dụng</h3>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="p-4 bg-slate-100 rounded-lg"><p class="font-medium">Flutter</p></div>
+                            <div class="p-4 bg-slate-100 rounded-lg"><p class="font-medium">Dart</p></div>
+                            <div class="p-4 bg-slate-100 rounded-lg"><p class="font-medium">MySQL</p></div>
+                            <div class="p-4 bg-slate-100 rounded-lg"><p class="font-medium">RESTful API</p></div>
+                            <div class="p-4 bg-slate-100 rounded-lg"><p class="font-medium">Google Maps API</p></div>
+                            <div class="p-4 bg-slate-100 rounded-lg"><p class="font-medium">WebSockets</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plan" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">Kế Hoạch Thực Hiện</h2>
+                    <p class="mt-4 text-lg text-slate-600">Biểu đồ Gantt trực quan hóa tiến độ dự án trong 15 tuần.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="ganttChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p>Đồ án tốt nghiệp Khoa Công nghệ thông tin</p>
+            <p class="text-sm text-slate-400 mt-2">Trường Đại học Tài nguyên và Môi trường TP.HCM</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const features = [
+                { id: 'F1', name: 'Quản lý Tài khoản', desc: 'Bao gồm các chức năng đăng ký, đăng nhập, đăng xuất và khôi phục mật khẩu, đảm bảo an toàn và tiện lợi cho người dùng.' },
+                { id: 'F2', name: 'Hồ sơ cá nhân', desc: 'Người dùng có thể cập nhật thông tin cá nhân, ảnh đại diện, xem lại các bài viết đã đăng và lịch sử các bài viết đã tương tác.' },
+                { id: 'F3', name: 'Quản lý Bài viết', desc: 'Cho phép tạo bài viết mới với nhiều hình ảnh, mô tả chi tiết và quan trọng nhất là gắn thẻ (tag) địa điểm cụ thể.' },
+                { id: 'F4', name: 'Bảng tin (Feed)', desc: 'Hiển thị các bài viết mới nhất từ những người dùng mà bạn theo dõi, giúp cập nhật thông tin liên tục.' },
+                { id: 'F5', name: 'Tương tác xã hội', desc: 'Người dùng có thể "Thích" (Like/Unlike) và để lại bình luận trên các bài viết để tăng cường sự tương tác trong cộng đồng.' },
+                { id: 'F6', name: 'Theo dõi (Follow)', desc: 'Chức năng theo dõi và bỏ theo dõi người dùng khác để cá nhân hóa nội dung trên bảng tin.' },
+                { id: 'F7', name: 'Tìm kiếm', desc: 'Công cụ tìm kiếm mạnh mẽ cho phép tìm người dùng theo tên hoặc tìm các bài viết theo địa điểm đã được gắn thẻ.' },
+                { id: 'F8', name: 'Bản đồ khám phá', desc: 'Một bản đồ tương tác hiển thị tất cả các bài viết công khai. Người dùng có thể nhấn vào các điểm để xem nhanh thông tin và bài viết.' },
+                { id: 'F9', name: 'Nhắn tin', desc: 'Cung cấp tính năng nhắn tin 1-1 giữa các người dùng trong thời gian thực, giúp kết nối riêng tư và thuận tiện.' },
+                { id: 'F10', name: 'Biểu quyết (Vote)', desc: 'Tạo các cuộc biểu quyết công khai về một địa điểm du lịch ("Nên đi" / "Không nên đi") để cộng đồng cùng tham gia đánh giá.' }
+            ];
+
+            const featureList = document.getElementById('feature-list');
+            const featureDetailsContainer = document.getElementById('feature-details-container');
+            const featureDetailsContent = document.getElementById('feature-details-content');
+            let activeFeatureButton = null;
+
+            features.forEach(feature => {
+                const button = document.createElement('button');
+                button.className = 'feature-btn p-4 bg-white border rounded-lg text-center hover:bg-teal-50 hover:border-teal-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500';
+                button.dataset.featureId = feature.id;
+                button.innerHTML = `<p class="font-semibold text-sm text-slate-800">${feature.name}</p>`;
+                
+                button.addEventListener('click', () => {
+                    if (activeFeatureButton) {
+                        activeFeatureButton.classList.remove('bg-teal-100', 'border-teal-400');
+                        activeFeatureButton.classList.add('bg-white');
+                    }
+                    button.classList.add('bg-teal-100', 'border-teal-400');
+                    button.classList.remove('bg-white');
+                    activeFeatureButton = button;
+
+                    featureDetailsContent.innerHTML = `
+                        <h3 class="text-xl font-bold text-teal-600 mb-2">${feature.name}</h3>
+                        <p class="text-slate-600">${feature.desc}</p>
+                    `;
+                });
+
+                featureList.appendChild(button);
+            });
+
+            const ganttData = {
+                labels: [
+                    'Tìm hiểu, Phân tích',
+                    'Thiết kế CSDL, API, UI/UX',
+                    'Xây dựng Backend',
+                    'Xây dựng Frontend',
+                    'Tích hợp Google Maps',
+                    'Xây dựng Nhắn tin & Vote',
+                    'Kiểm thử & Tối ưu',
+                    'Hoàn thiện Báo cáo'
+                ],
+                datasets: [{
+                    label: 'Tiến độ dự án (tuần)',
+                    data: [
+                        [0, 2],
+                        [2, 4],
+                        [4, 7],
+                        [7, 11],
+                        [11, 12],
+                        [12, 13],
+                        [13, 14],
+                        [14, 15]
+                    ],
+                    backgroundColor: [
+                        'rgba(13, 148, 136, 0.6)',
+                        'rgba(8, 126, 139, 0.6)',
+                        'rgba(6, 95, 142, 0.6)',
+                        'rgba(59, 130, 246, 0.6)',
+                        'rgba(234, 179, 8, 0.6)',
+                        'rgba(217, 119, 6, 0.6)',
+                        'rgba(220, 38, 38, 0.6)',
+                        'rgba(107, 114, 128, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgb(13, 148, 136)',
+                        'rgb(8, 126, 139)',
+                        'rgb(6, 95, 142)',
+                        'rgb(59, 130, 246)',
+                        'rgb(234, 179, 8)',
+                        'rgb(217, 119, 6)',
+                        'rgb(220, 38, 38)',
+                        'rgb(107, 114, 128)'
+                    ],
+                    borderWidth: 1,
+                    barPercentage: 0.6,
+                    categoryPercentage: 0.8,
+                    borderSkipped: false,
+                }]
+            };
+
+            const ganttConfig = {
+                type: 'bar',
+                data: ganttData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            position: 'top',
+                            min: 0,
+                            max: 15,
+                            title: {
+                                display: true,
+                                text: 'Tuần'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const item = context.dataset.data[context.dataIndex];
+                                    return ` ${context.label}: Tuần ${item[0] + 1} - Tuần ${item[1]}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            const ganttChartCtx = document.getElementById('ganttChart').getContext('2d');
+            new Chart(ganttChartCtx, ganttConfig);
+        });
+    </script>
+</body>
+</html>
